@@ -2,12 +2,9 @@
     "name": "revealfileinfolder",
     "displayName": "Reveal File In Folder",
     "description": "Quickly reveal file in folder/finder/explorer",
-    "version": "0.0.3",
-    "publisher": "Molunerfinn",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Molunerfinn/VSCode-RevealFileinFolder.git"
-    },
+    "version": "0.0.1",
+    "publisher": "ctf0",
+    "repository": "https://github.com/ctf0/VSCode-RevealFileInFolder",
     "engines": {
         "vscode": "^1.23.0"
     },
@@ -15,7 +12,7 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.revealFileInFolder"
+        "onFileSystem:file"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -33,7 +30,7 @@
             "editor/context": [
                 {
                     "command": "extension.revealFileInFolder",
-                    "when": "editorFocus && resourceScheme != 'untitled'",
+                    "when": "editorIsOpen && resourceScheme != 'untitled'",
                     "group": "navigation"
                 }
             ],
@@ -41,7 +38,7 @@
                 {
                     "command": "extension.revealFileInFolder",
                     "group": "navigation",
-                    "when": "editorIsOpen && resourceScheme != 'untitled' && resourceScheme != 'walkThrough'"
+                    "when": "editorIsOpen && canRevealFile"
                 }
             ]
         }
