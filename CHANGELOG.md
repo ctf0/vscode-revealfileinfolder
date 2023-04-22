@@ -7,3 +7,7 @@
 ## 0.0.4
 
 - change icon
+
+## 0.0.5
+
+- change icon
