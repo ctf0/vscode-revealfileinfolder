@@ -2,11 +2,11 @@
     "name": "revealfileinfolder",
     "displayName": "Reveal File In Folder",
     "description": "Quickly reveal file in folder/finder/explorer",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "publisher": "ctf0",
     "repository": "https://github.com/ctf0/VSCode-RevealFileInFolder",
     "engines": {
-        "vscode": "^1.68.0"
+        "vscode": "^1.85.0"
     },
     "categories": [
         "Other"
@@ -48,9 +48,9 @@
         "watch": "npm run esbuild"
     },
     "devDependencies": {
-        "@types/node": "^18.15.11",
-        "@types/vscode": "^1.68.0",
-        "typescript": "^5.0.4",
-        "esbuild": "^0.17.10"
+        "@types/node": "^22.13.1",
+        "@types/vscode": "^1.85.0",
+        "typescript": "^5.7.3",
+        "esbuild": "^0.25.0"
     }
 }
