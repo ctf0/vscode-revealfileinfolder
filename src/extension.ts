@@ -1,38 +1,36 @@
-'use strict'
-
-import * as vscode from 'vscode'
+import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    setContext(false)
+    setContext(false);
 
     // current
-    let editor = vscode.window.activeTextEditor
+    const editor = vscode.window.activeTextEditor;
 
     if (editor && isAFile(editor)) {
-        setContext(true)
+        setContext(true);
     }
 
     vscode.window.onDidChangeActiveTextEditor((editor) => {
-        setContext(false)
+        setContext(false);
 
         if (editor && isAFile(editor)) {
-            setContext(true)
+            setContext(true);
         }
-    })
+    });
 
     context.subscriptions.push(
         vscode.commands.registerCommand('extension.revealFileInFolder', () => {
-            vscode.commands.executeCommand('revealFileInOS')
-        })
-    )
+            vscode.commands.executeCommand('revealFileInOS');
+        }),
+    );
 }
 
 function isAFile({ document }: any) {
-    return document.fileName.includes('/')
+    return document.fileName.includes('/');
 }
 
 function setContext(val: any) {
-    return vscode.commands.executeCommand('setContext', 'canRevealFile', val)
+    return vscode.commands.executeCommand('setContext', 'canRevealFile', val);
 }
 
 export function deactivate() {
