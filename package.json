@@ -51,6 +51,6 @@
         "@types/node": "^18.15.11",
         "@types/vscode": "^1.68.0",
         "typescript": "^5.0.4",
-        "esbuild": "^0.17.10"
+        "esbuild": "^0.25.0"
     }
 }
