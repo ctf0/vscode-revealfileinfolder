@@ -1,34 +1,29 @@
 {
-    "name": "revealfileinfolder",
-    "displayName": "Reveal File In Folder",
-    "description": "Quickly reveal file in folder/finder/explorer",
-    "version": "0.0.6",
-    "publisher": "ctf0",
-    "repository": "https://github.com/ctf0/VSCode-RevealFileInFolder",
-    "engines": {
-        "vscode": "^1.85.0"
-    },
-    "categories": [
-        "Other"
-    ],
     "activationEvents": [
         "onFileSystem:file"
     ],
-    "main": "./out/main",
+    "categories": [
+        "Other"
+    ],
     "contributes": {
         "commands": [
             {
                 "command": "extension.revealFileInFolder",
-                "title": "Reveal in folder",
-                "icon": "$(sign-in)"
+                "icon": "$(sign-in)",
+                "title": "Reveal in folder"
+            },
+            {
+                "command": "revealFileInOS",
+                "icon": "$(sign-in)",
+                "title": "Reveal in OS"
             }
         ],
         "menus": {
             "editor/context": [
                 {
                     "command": "extension.revealFileInFolder",
-                    "when": "canRevealFile",
-                    "group": "navigation"
+                    "group": "navigation",
+                    "when": "canRevealFile"
                 }
             ],
             "editor/title": [
@@ -37,20 +32,37 @@
                     "group": "navigation",
                     "when": "canRevealFile"
                 }
+            ],
+            "view/title": [
+                {
+                    "command": "revealFileInOS",
+                    "group": "navigation",
+                    "when": "view == workbench.explorer.fileView"
+                }
             ]
         }
     },
+    "description": "Quickly reveal file in folder/finder/explorer",
+    "devDependencies": {
+        "@types/node": "^24.3.1",
+        "@types/vscode": "^1.90.0",
+        "esbuild": "^0.25.9",
+        "typescript": "^5.9.2"
+    },
+    "displayName": "Reveal File In Folder",
+    "engines": {
+        "vscode": "^1.90.0"
+    },
+    "main": "./out/main",
+    "name": "revealfileinfolder",
+    "publisher": "ctf0",
+    "repository": "https://github.com/ctf0/VSCode-RevealFileInFolder",
     "scripts": {
-        "vscode:prepublish": "npm run esbuild-base -- --pure:console.log --minify",
-        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
         "esbuild": "npm run esbuild-base -- --sourcemap",
+        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
         "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+        "vscode:prepublish": "npm run esbuild-base -- --pure:console.log --minify",
         "watch": "npm run esbuild"
     },
-    "devDependencies": {
-        "@types/node": "^22.13.1",
-        "@types/vscode": "^1.85.0",
-        "typescript": "^5.7.3",
-        "esbuild": "^0.25.0"
-    }
+    "version": "0.0.7"
 }
